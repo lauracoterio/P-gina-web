@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <title>Start shopping</title>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -73,7 +75,103 @@
 }
 
 
-/* Estilos para la pantalla de carga */
+
+/*estilos para el slide favoritos*/
+.fav{
+  margin-top: 65px;
+  font-size: 50px;
+  text-align: center;
+}
+.image-container-fav { /*CONTENEDOR PRINCIPAL*/
+    margin-left: 50px;
+    float: left;/*Funciona para que las imagenes queden alineadas (en fila)*/
+    display: flex;/* Aplica el modelo de caja flexible */
+    position: relative;/* Permite posicionar de manera relativa*/
+    align-items: center;
+    width: 300px;  
+    height: 500px; 
+  }
+  .image {
+    border-radius: 5px;
+    position: absolute;/* Posiciona la imagen absolutamente dentro del contenedor*/
+    width: 100%; /* Ancho completo del contenedor */
+    height: 100%; /* Altura completa del contenedor */
+    object-fit: cover;  /* Asegura que la imagen cubra completamente el contenedor */
+    transition: opacity 0.3s ease-in-out; /* Transición suave de la opacidad en 0.3 segundos */
+  }
+  .hover-image {
+    opacity: 0; /* Imagen inicialmente invisible */
+  }
+  /*Cuando el contenedor de imagen es hovered (cuando el cursor pasa sobre él),
+   la imagen con la clase hover-image se hace visible (opacity: 1) y también se le aplican bordes redondeados.*/
+  .image-container-fav:hover .hover-image {
+    opacity: 1;
+    border-radius: 5px;
+  }
+  /*La imagen con la clase main-image se hace invisible (opacity: 0) cuando el contenedor es hovered.*/
+  .image-container-fav:hover .main-image {
+    opacity: 0;
+  }
+
+
+  /*estilos para el footer*/
+  
+/* Estilos generales del footer */
+footer {
+    text-align: center;
+    color: #333;
+    margin-top: 580px;
+}
+
+/* Sección superior del footer */
+.footer-top {
+    background-color: #001529;
+    padding: 20px;
+    text-align: center;
+}
+
+.social-icons a {
+    color: #fff02d;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #000;
+}
+
+.p-foot{
+  gap: 20px;
+  color: #fff02d;
+}
+
+/* Sección inferior del footer */
+.footer-bottom {
+    background-color: #001529;
+    color: #fff02d;
+    padding: 15px;
+    font-size: 14px;
+
+}
+.footer-bottom p {
+    margin: 0;
+    color: #fff02d;
+}
+
+.footer-bottom a {
+    color: #fff02d;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-bottom a:hover {
+    color: #000000;
+}
+
+
+/* ESTILOS PARA LA PANTALLA DE CARGA*/
 #loading-screen {
     position: fixed;
     top: 0;
@@ -110,12 +208,12 @@
 </head>
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
 
-
+<!-- PANTALLA DE CARGA -->
   <div id="loading-screen">
     <img src="img/img5.png" alt="Loading Logo">
 </div>
 
-
+<!--BARRA DE NAVEGACION -->
 <nav class="navbar navbar-expand-lg custom-navbar">
   <div class="container-fluid">
     <a class="navbar-brand" href="PA_principal.html"><img src="img/img5 (3).png" alt=""></a>
@@ -153,10 +251,7 @@
 
 
 
-
-
-
-
+<!--PRIMER CARRUSEL-->
   <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <!-- Primer slide con imágenes en fila -->
@@ -171,18 +266,18 @@
       <!-- Segundo slide -->
       <div class="carousel-item" data-bs-interval="2000">
         <div class="image-container">
-            <img src="img/PA1.png" alt="First image">
-            <img src="img/PA2.png" alt="Second image">
-            <img src="img/PA3.png" alt="Third image">
+            <img src="img/PA10.png" alt="First image">
+            <img src="img/PA11.png" alt="Second image">
+            <img src="img/PA12.png" alt="Third image">
           </div>
       </div>
       
       <!-- Tercer slide -->
       <div class="carousel-item">
         <div class="image-container">
-            <img src="img/PA1.png" alt="First image">
-            <img src="img/PA2.png" alt="Second image">
-            <img src="img/PA3.png" alt="Third image">
+            <img src="img/PA5.png" alt="First image">
+            <img src="img/PA4.png" alt="Second image">
+            <img src="img/PA1.png" alt="Third image">
         </div>
       </div>
     </div>
@@ -197,6 +292,50 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+
+
+
+  <!--FAVORITOS-->
+<p class="fav"><i>FAVORITOS DEL MOMENTO</i></p>
+<div class="image-container-fav">
+  <img src="img/fav1.png" alt="Image principal" class="image main-image">
+  <img src="img/h3.jpg" alt="Image hover" class="imgage hover-image">
+</div>
+<div class="image-container-fav">
+  <img src="img/fav2.png" alt="Image principal" class="image main-image">
+  <img src="img/h3.jpg" alt="Image hover" class="imgage hover-image">
+</div>
+<div class="image-container-fav">
+  <img src="img/fav3.png" alt="Image principal" class="image main-image">
+  <img src="img/h3.jpg" alt="Image hover" class="imgage hover-image">
+</div>
+<div class="image-container-fav">
+  <img src="img/fav4.png" alt="Image principal" class="image main-image">
+  <img src="img/h3.jpg" alt="Image hover" class="imgage hover-image">
+</div>
+
+
+
+
+<!--FOOTER-->
+<footer>
+  <!-- Sección de iconos y correo electrónico -->
+  <div class="footer-top">
+      <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+
+          <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p class="p-foot">ovejas++@.asdicom</p>
+  </div>
+
+  <!-- Sección de copyright y enlaces legales -->
+  <div class="footer-bottom">
+      <p>&copy; S M & L | Diseñador Web: Ovejas++ | <a href="#">Aviso legal</a> · <a href="#">Política de privacidad</a></p>
+  </div>
+</footer>
+
 
 </body>
 </html>
