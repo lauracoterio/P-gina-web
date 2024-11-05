@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="img/icon3.png" type="image/x-icon">
+    <title>About us</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #001529;
+            font-family: 'Cormorant Garamond', serif;
+            color: #fff02d;
+        }
+
+        /*estilos para el navbar*/
+        .custom-navbar {
+            background-color: #001529;
+            overflow: hidden;
+            margin-bottom: 20px;
+            margin-top: -20px;
+        }
+        .span-navbar a {
+            margin-left: 50px;
+            margin-right: -10px;
+        }
+        .sh_bag {
+            width: 35%;
+            height: 35%;
+            margin-top: -5px;
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff02d;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            margin-left: 50px;
+        }
+        .navbar a:hover {
+            background-color: #dddddd51;
+            color: white;
+        }
+
+
+/*ESTILOS PARA EL MENSAJE*/
+        .p-about-us{
+    color: #fff02d;
+    margin-top: 20px;
+    justify-content: center;
+    margin-left: 150px;
+    margin-right: 150px;
+    font-size: 20px;
+    line-height: 180%; /* interlineado de 1.5 veces el tamaño de fuente */
+
+}
+
+
+
+        /*ESTILOS PARA EL FOOTER*/
+footer {
+    text-align: center;
+    color: #333;
+    margin-top: -10px;
+}
+
+/* Sección superior del footer */
+.footer-top {
+    background-color: #001529;
+    padding: 20px;
+    text-align: center;
+}
+
+.social-icons a {
+    color: #fff02d;
+    margin: 0 10px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #000;
+}
+
+.p-foot{
+  gap: 20px;
+  color: #fff02d;
+}
+
+/* Sección inferior del footer */
+.footer-bottom {
+    background-color: #001529;
+    color: #fff02d;
+    padding: 15px;
+    font-size: 14px;
+
+}
+.footer-bottom p {
+    margin: 0;
+    color: #fff02d;
+}
+
+.footer-bottom a {
+    color: #fff02d;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-bottom a:hover {
+    color: #000000;
+}
+
+
+        /* Estilos para la pantalla de carga */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 21, 41, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeOut 2s ease forwards;
+        }
+        #loading-screen img {
+            width: 100px;
+            animation: spin 1s infinite linear;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(180deg); }
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        </style>
+
+</head>
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    
+
+   <!-- Pantalla de carga -->
+   <div id="loading-screen">
+    <img src="img/img5.png" alt="Loading Logo">
+</div>
+
+
+<!--BARRA DE NAVEGACIÓN-->
+<nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="PA_principal.html"><img src="img/img5 (3).png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="start_shopping.html"><i>HOME</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i>NECKLACES</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i>EARRINGS</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i>COLLECTIONS</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AB"><i>ABOUT US</i></a>
+                </li>
+            </ul>
+            <span class="navbar-text span-navbar">
+                <a class="nav-link" href="PA_inicio de sesion.html"><i>SIGN UP</i></a>
+                <a class="nav-link" href="PA_inicio de sesion.html"><i>LOG IN</i></a>
+                <a class="nav-link" href="#"><img src="img/sh_bag.png" alt="bag" class="sh_bag"></a>
+            </span>
+        </div>
+    </div>
+</nav>
+
+
+
+<p class="p-about-us"><i> Sobre Nosotros
+    En Paola Arenas, creemos firmemente que la joyería es mucho más que un simple accesorio; es una forma de expresión, una obra de arte y una celebración del estilo personal. 
+    Cada una de nuestras creaciones es elaborada con dedicación y esmero, fusionando calidad y elegancia atemporal. Nos inspiramos en la belleza de la naturaleza y en las historias únicas 
+    que cada uno de nuestros clientes trae consigo, lo que nos permite crear piezas que no solo complementan, sino que también reflejan la esencia de quienes las llevan. <br>
+    
+    Nuestra misión es crear joyas que realcen tu individualidad y resalten tu esencia. Desde collares llamativos que atraen miradas hasta delicados aretes que añaden un toque de sofisticación,
+     nuestras colecciones están diseñadas pensando en ti. Queremos que cada pieza te haga sentir segura y empoderada, conectada con algo hermoso que trasciende las modas pasajeras. <br>
+    
+    Cada joya que ofrecemos es el resultado del trabajo de artesanos apasionados que seleccionan a mano los materiales de la más alta calidad. Creemos en la importancia de la sostenibilidad y 
+    en el respeto por el medio ambiente, por lo que nos aseguramos de que nuestras prácticas sean responsables y éticas. Utilizamos materiales reciclados siempre que es posible y apoyamos
+     a proveedores que comparten nuestro compromiso con la sostenibilidad. <br>
+    
+    Además, valoramos el arte del diseño personalizado. Nos encanta trabajar de la mano con nuestros clientes para crear piezas únicas que cuenten su historia personal. Cada joya tiene el 
+    potencial de ser un legado, un recuerdo tangible que puede ser atesorado a lo largo de generaciones. <br>
+    
+    Te invitamos a unirte a nosotros en este viaje para explorar el mundo de la joyería, donde cada creación va más allá de las tendencias y celebra la autenticidad, la elegancia y el 
+    poder del estilo propio. En Paola Arenas, cada joya cuenta una historia, y esperamos que la tuya se entrelace con las nuestras. Porque en última instancia, la verdadera
+     belleza radica en ser auténtico, y estamos aquí para ayudarte a brillar. <br> </i>
+    </p>
+
+
+
+
+
+<!--FOOTER-->
+<footer>
+    <!-- Sección de iconos y correo electrónico -->
+    <div class="footer-top">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+  
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="p-foot"><i>ovejas++@asdi.com</i></p>
+    </div>
+  
+    <!-- Sección de copyright y enlaces legales -->
+    <div class="footer-bottom">
+        <p><i>&copy; S M & L | Diseñador Web: Ovejas++ | <a href="#">Aviso legal</a> · <a href="#">Política de privacidad</i></a></p>
+    </div>
+  </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
