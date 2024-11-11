@@ -10,108 +10,164 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <style>
       body {
-             margin: 0;
-             padding: 0;
+             margin: 0;/*no espacio adicional de la margen*/
+             padding: 0;/*no espacio adicional del interior*/
              background-color: #001529;
              font-family: 'Cormorant Garamond', serif;
              color: #fff02d;
          }
 
-         /*estilos para el navbar*/
+         /*ESTILOS PARA EL NAVBAR*/
          .custom-navbar {
              background-color:  #001529;
-             overflow: hidden;
              margin-bottom: 20px;
              margin-top: -20px;
          }
+
+         /*log in, sign up y la bolsa*/
          .span-navbar a {
           margin-left: 50px; /* Ajusta el valor según lo necesites */
           margin-right: -10px;
          }
+         /*diseño de la bolsa*/
          .sh_bag{
           width:35%;
           height:35%;
           margin-top: -5px;
          }
+
          .navbar a {
-             float: left;
-             display: block;
+             float: left; /*se alineas a la izquierda horizontalmente*/
+             display: block; /*ocupan toda la línea*/
              color: #fff02d;
              text-align: center;
-             padding: 14px 20px;
-             text-decoration: none;
-             margin-left: 50px;
+             padding: 14px 20px;/*Agrega un espacio de 14 píxeles arriba y abajo, y de 20 píxeles a la izquierda y derecha de los enlaces*/
+             text-decoration: none;/* Elimina el subrayado predeterminado de los enlaces*/
+             margin-left: 50px;/*Aplica un margen izquierdo de 50 píxeles, separando cada enlace de los demás*/
          }
          .navbar a:hover {
              background-color: #dddddd51;
              color: white;
          }
 
-        /*ESTILO PARA EL PRIMER SLIDE*/
-         .carousel-item .image-container {
-             display: flex;
-             justify-content: center;
-             gap: 15px; /* Espacio entre imágenes */
-             height: 500px;
-         }
-         .carousel-item img {
-             height: 600px; /* Ajusta la altura según tus necesidades */
-             object-fit: cover; /* Asegura que la imagen cubra el área de la diapositiva */
-        
-         }
 
-         .carousel-item .image-container img {
+        /*ESTILO PARA EL PRIMER SLIDE*/
+.carousel-item .image-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espacio entre imágenes */
+    height: 500px;
+}
+
+.carousel-item img {
+    height: 600px;
+    object-fit: cover;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .carousel-item .image-container:hover img {
-    filter: blur(3px) brightness(0.7); /* Aplica desenfoque y oscurecimiento a todas las imágenes */
+    filter: blur(3px) brightness(0.7);
 }
 
 .carousel-item .image-container img:hover {
-    transform: scale(1.2); /* Aplica el zoom solo a la imagen en hover */
-    filter: none; /* Remueve el desenfoque de la imagen bajo el cursor */
+    transform: scale(1.2);
+    filter: none;
     z-index: 1;
+}
+
+/* Responsive: imágenes en columna en tablets y pantallas pequeñas */
+@media (max-width: 1023px) {
+    .carousel-item .image-container {
+        flex-direction: column; /* Cambia de fila a columna */
+        height: auto; /* Ajusta la altura para que se acomode al contenido */
+        gap: 10px; /* Reduce el espacio entre imágenes en mobile */
+    }
+    
+    .carousel-item img {
+        height: auto; /* Ajusta la altura automática */
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho */
+    }
 }
 
 
 
 /*ESTILOS SLIDE PARA FAVORITOS*/
-.fav{
+.fav {
   margin-top: 65px;
   font-size: 50px;
   text-align: center;
 }
-.image-container-fav { /*CONTENEDOR PRINCIPAL*/
-    margin-left: 50px;
-    float: left;/*Funciona para que las imagenes queden alineadas (en fila)*/
-    display: flex;/* Aplica el modelo de caja flexible */
-    position: relative;/* Permite posicionar de manera relativa*/
-    align-items: center;
-    width: 300px;  
-    height: 500px; 
+
+/* Contenedor de todas las imágenes de "Favoritos del momento" */
+.favorites-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas si es necesario */
+  justify-content: center;
+  gap: 20px; /* Espacio entre los elementos */
+  padding: 20px;
+}
+
+/* Contenedor individual de cada imagen */
+.image-container-fav {
+  /*Ancho y altura del contenedor*/
+  width: 300px;
+  height: 500px;
+  position: relative;/*asegura que las imágenes se ajusten dentro de este contenedor*/
+}
+
+.image {
+  /*aplica para cada imágen*/
+  border-radius: 5px;
+  position: absolute;/*Coloca la imagen en una posición absoluta dentro del contenedor .image-container-fav, para que se ajuste completamente dentro de él*/
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hover-image {
+  opacity: 0; /*Inicialmente, esta imagen es invisible*/
+}
+
+/* Hover: la imagen principal desaparece y la de hover aparece */
+.image-container-fav:hover .hover-image {
+  opacity: 1; /*Hace visible la imagen de la clase*/
+  border-radius: 5px; /*Aplica el mismo estilo de borde de la imagen principal*/
+}
+
+.image-container-fav:hover .main-image {
+  opacity: 0; /*Hace que la imagen principal se vuelva invisible cuando el usuario pasa el cursor sobre el contenedor*/
+}
+
+
+
+/*DISEÑO RESPONSIVE*/
+/* En computadoras: una sola fila de 4 imágenes */
+@media (min-width: 1024px) {
+  .favorites-container {
+    max-width: 1260px; /* Ajusta para que las 4 imágenes queden en una fila */
+    margin: 0 auto; /* Centra el contenedor */
+    gap: 20px;
   }
-  .image {
-    border-radius: 5px;
-    position: absolute;/* Posiciona la imagen absolutamente dentro del contenedor*/
-    width: 100%; /* Ancho completo del contenedor */
-    height: 100%; /* Altura completa del contenedor */
-    object-fit: cover;  /* Asegura que la imagen cubra completamente el contenedor */
-    transition: opacity 0.3s ease-in-out; /* Transición suave de la opacidad en 0.3 segundos */
+
+  .image-container-fav {
+    width: 23%; /* Cuatro elementos por fila en computadoras */
   }
-  .hover-image {
-    opacity: 0; /* Imagen inicialmente invisible */
+}
+
+/* En tablets: dos filas con dos imágenes cada una */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .image-container-fav {
+    width: 45%; /* Dos elementos por fila */
   }
-  /*Cuando el contenedor de imagen es hovered (cuando el cursor pasa sobre él),
-   la imagen con la clase hover-image se hace visible (opacity: 1) y también se le aplican bordes redondeados.*/
-  .image-container-fav:hover .hover-image {
-    opacity: 1;
-    border-radius: 5px;
+}
+
+/* En móviles: una imagen por fila */
+@media (max-width: 767px) {
+  .image-container-fav {
+    width: 100%; /* Una imagen por fila ocupando el ancho completo */
   }
-  /*La imagen con la clase main-image se hace invisible (opacity: 0) cuando el contenedor es hovered.*/
-  .image-container-fav:hover .main-image {
-    opacity: 0;
-  }
+}
 
 
   
@@ -119,7 +175,7 @@
 footer {
     text-align: center;
     color: #333;
-    margin-top: 580px;
+    margin-top: 80px;
 }
 
 /* Sección superior del footer */
@@ -133,7 +189,6 @@ footer {
     color: #fff02d;
     margin: 0 10px;
     font-size: 20px;
-    text-decoration: none;
     transition: color 0.3s;
 }
 
@@ -142,7 +197,6 @@ footer {
 }
 
 .p-foot{
-  gap: 20px;
   color: #fff02d;
 }
 
@@ -150,19 +204,15 @@ footer {
 .footer-bottom {
     background-color: #001529;
     color: #fff02d;
-    padding: 15px;
     font-size: 14px;
 
 }
 .footer-bottom p {
-    margin: 0;
     color: #fff02d;
 }
 
 .footer-bottom a {
     color: #fff02d;
-    text-decoration: none;
-    margin: 0 5px;
 }
 
 .footer-bottom a:hover {
@@ -170,47 +220,63 @@ footer {
 }
 
 
-/* ESTILOS PARA LA PANTALLA DE CARGA*/
-#loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 21, 41, 0.9); /* Fondo oscuro semi-transparente */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    animation: fadeOut 2s ease forwards; /* Oculta la pantalla de carga después de 2s */
-}
 
-/* Estilos del logo dentro de la pantalla de carga */
-#loading-screen img {
-    width: 100px; /* Ajusta el tamaño del logo */
-    animation: spin 1s infinite linear; /* Animación de giro opcional */
-}
+        /*ESTILOS PARA LA PANTALLA DE CARGA */
+        /*contenedor principal*/
+        #loading-screen {
+            position: fixed; /*cubre toda el área de la ventana.*/
+            /* Asegura que la pantalla de carga comience en la esquina superior izquierda.*/
+            top: 0;
+            left: 0;
+            /*Hace que la pantalla de carga ocupe todo el ancho y alto de la ventana.*/
+            width: 100%;
+            height: 100%;
 
-/* Animación de giro */
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(180deg); }
-}
+            background-color: rgba(0, 21, 41, 0.9);/*oscurecer la pantalla*/
+            /*Centra el contenido*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-/* Animación para ocultar la pantalla de carga */
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; visibility: hidden; }
-}
+            z-index: 1000;/*Coloca la pantalla de carga encima de otros elementos en la página.*/
+            animation: fadeOut 2s ease forwards; /*Aplica una animación de desvanecimiento*/
+        }
+
+        /* se aplica a la imagen dentro del contenedor*/
+        /*Aplica una animación de rotación a la imagen para que gire continuamente.*/
+        #loading-screen img {
+            width: 100px;
+            animation: spin 1s infinite linear;/*se ejecuta en 1 segundo y se repite indefinidamente con una velocidad constante*/
+        }
+
+        /*Define la animación de rotación de la imagen*/
+        @keyframes spin {
+            from { transform: rotate(0deg); }/*Al inicio de la animación, la imagen no tiene rotación*/
+
+            /*Este efecto se repite continuamente debido a infinite en animation: spin 1s infinite linear;*/
+            to { transform: rotate(360deg); }/*la imagen rota 360 grados en el transcurso de la animación*/
+        }
+
+        /*Define la animación de desvanecimiento para ocultar la pantalla de carga*/
+        @keyframes fadeOut {
+            0% { opacity: 1; }/*Al inicio, el contenedor es completamente opaco*/
+
+            /*La pantalla de carga se desvanece en 2 segundos debido a animation: fadeOut 2s ease forwards*/
+            100% { opacity: 0; visibility: hidden; } /*Al final de la animación, el contenedor es completamente transparente y queda oculto*/
+        }
 
   </style>
 </head>
+
+
+
 <body class="p-3 m-0 border-0 bd-example m-0 border-0">
 
 <!-- PANTALLA DE CARGA -->
   <div id="loading-screen">
     <img src="img/img5.png" alt="Loading Logo">
 </div>
+
 
 <!--BARRA DE NAVEGACION -->
 <nav class="navbar navbar-expand-lg custom-navbar">
@@ -295,23 +361,26 @@ footer {
 
 
   <!--FAVORITOS-->
-<p class="fav"><i>FAVORITOS DEL MOMENTO</i></p>
-<div class="image-container-fav">
-  <img src="img/fav1.png" alt="Image principal" class="image main-image">
-  <img src="img/h3.jpg" alt="Image hover" class="imgage hover-image">
-</div>
-<div class="image-container-fav">
-  <img src="img/fav2.png" alt="Image principal" class="image main-image">
-  <img src="img/h3.jpg" alt="Image hover" class="imgage hover-image">
-</div>
-<div class="image-container-fav">
-  <img src="img/fav3.png" alt="Image principal" class="image main-image">
-  <img src="img/h3.jpg" alt="Image hover" class="imgage hover-image">
-</div>
-<div class="image-container-fav">
-  <img src="img/fav4.png" alt="Image principal" class="image main-image">
-  <img src="img/h3.jpg" alt="Image hover" class="imgage hover-image">
-</div>
+  <p class="fav"><i>FAVORITOS DEL MOMENTO</i></p>
+  <div class="favorites-container">
+    <div class="image-container-fav">
+      <img src="img/fav1.png" alt="Image principal" class="image main-image">
+      <img src="img/h3.jpg" alt="Image hover" class="image hover-image">
+    </div>
+    <div class="image-container-fav">
+      <img src="img/fav2.png" alt="Image principal" class="image main-image">
+      <img src="img/h3.jpg" alt="Image hover" class="image hover-image">
+    </div>
+    <div class="image-container-fav">
+      <img src="img/fav3.png" alt="Image principal" class="image main-image">
+      <img src="img/h3.jpg" alt="Image hover" class="image hover-image">
+    </div>
+    <div class="image-container-fav">
+      <img src="img/fav4.png" alt="Image principal" class="image main-image">
+      <img src="img/h3.jpg" alt="Image hover" class="image hover-image">
+    </div>
+  </div>
+  
 
 
 

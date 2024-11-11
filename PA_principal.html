@@ -7,8 +7,8 @@
     <title>Paola Arenas - Joyería</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0;/*no espacio adicional de la margen*/
+            padding: 0;/*no espacio adicional del interior*/
             background-color: #001529;
             font-family: 'Cormorant Garamond', serif;
             color: #fff02d;
@@ -197,38 +197,50 @@
             }
         }
 
-/* Estilos para la pantalla de carga */
-#loading-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 21, 41, 0.9); /* Fondo oscuro semi-transparente */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    animation: fadeOut 2s ease forwards; /* Oculta la pantalla de carga después de 2s */
-}
 
-/* Estilos del logo dentro de la pantalla de carga */
-#loading-screen img {
-    width: 100px; /* Ajusta el tamaño del logo */
-    animation: spin 1s infinite linear; /* Animación de giro opcional */
-}
+        /*ESTILOS PARA LA PANTALLA DE CARGA */
+        /*contenedor principal*/
+        #loading-screen {
+            position: fixed; /*cubre toda el área de la ventana.*/
+            /* Asegura que la pantalla de carga comience en la esquina superior izquierda.*/
+            top: 0;
+            left: 0;
+            /*Hace que la pantalla de carga ocupe todo el ancho y alto de la ventana.*/
+            width: 100%;
+            height: 100%;
 
-/* Animación de giro */
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(180deg); }
-}
+            background-color: rgba(0, 21, 41, 0.9);/*oscurecer la pantalla*/
+            /*Centra el contenido*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-/* Animación para ocultar la pantalla de carga */
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; visibility: hidden; }
-}
+            z-index: 1000;/*Coloca la pantalla de carga encima de otros elementos en la página.*/
+            animation: fadeOut 2s ease forwards; /*Aplica una animación de desvanecimiento*/
+        }
+
+        /* se aplica a la imagen dentro del contenedor*/
+        /*Aplica una animación de rotación a la imagen para que gire continuamente.*/
+        #loading-screen img {
+            width: 100px;
+            animation: spin 1s infinite linear;/*se ejecuta en 1 segundo y se repite indefinidamente con una velocidad constante*/
+        }
+
+        /*Define la animación de rotación de la imagen*/
+        @keyframes spin {
+            from { transform: rotate(0deg); }/*Al inicio de la animación, la imagen no tiene rotación*/
+
+            /*Este efecto se repite continuamente debido a infinite en animation: spin 1s infinite linear;*/
+            to { transform: rotate(360deg); }/*la imagen rota 360 grados en el transcurso de la animación*/
+        }
+
+        /*Define la animación de desvanecimiento para ocultar la pantalla de carga*/
+        @keyframes fadeOut {
+            0% { opacity: 1; }/*Al inicio, el contenedor es completamente opaco*/
+
+            /*La pantalla de carga se desvanece en 2 segundos debido a animation: fadeOut 2s ease forwards*/
+            100% { opacity: 0; visibility: hidden; } /*Al final de la animación, el contenedor es completamente transparente y queda oculto*/
+        }
 
 
     </style>
