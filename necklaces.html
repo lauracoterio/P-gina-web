@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paola Arenas - Joyería</title>
+    <link rel="stylesheet" href="necklace.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* ESTILOS PARA EL NAVBAR */
+        .custom-navbar {
+            background-color: #001529;
+            margin-bottom: 0; /* Eliminar el margen inferior */
+        }
+
+        .span-navbar a {
+            margin-left: 50px;
+            margin-right: -10px;
+        }
+
+        .sh_bag {
+            width: 35%;
+            height: 35%;
+            margin-top: -5px;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #fff02d;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            margin-left: 50px;
+        }
+
+        .navbar a:hover {
+            background-color: #dddddd51;
+            color: white;
+        }
+
+        /* Eliminar el margen superior del body y el padding superior del primer contenedor */
+        body {
+            margin-top: 0;
+        }
+
+        .container {
+            padding-top: 0;
+        }
+    </style>
+</head>
+<body >
+
+    <!-- PANTALLA DE CARGA -->
+      <div id="loading-screen">
+        <img src="img/img5.png" alt="Loading Logo">
+    </div>
+    
+<!--BARRA DE NAVEGACION -->
+<nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="img/img5 (3).png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="start_shopping.html"><i>HOME</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="necklaces.html"><i>NECKLACES</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="rings.html"><i>RINGS</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about_us.html"><i>ABOUT US</i></a>
+                </li>
+            </ul>
+            <span class="navbar-text span-navbar">
+                <a class="nav-link" href="sing_up.html"><i>SIGN UP</i></a>
+                <a class="nav-link" href="PA_inicio de sesion.html"><i>LOG IN</i></a>
+                <a class="nav-link" href="#"><img src="img/sh_bag.png" alt="bag" class="sh_bag"></a>
+            </span>
+        </div>
+    </div>
+  </nav>
+
+    <section class="page-section">
+        <!-- Galería de productos -->
+        <div class="container">
+            <div class="gallery row">
+                <!-- Producto 1 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="img_necklaces/collar1.jpg" alt="Imagen 1" onclick="showProduct('img_necklaces/collar1.jpg', 'Collar 1', 'Collar elegante y sofisticado, perfecto para cualquier ocasión especial', '250,000')">
+                        <div class="card-body">
+                            <p class="price">COP $250,000</p>
+                            <a href="#" class="btn btn-details">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="img_necklaces/collar2.jpg" alt="Imagen 2" onclick="showProduct('img_necklaces/collar2.jpg', 'Collar 2', 'Un collar único que aporta un toque distintivo y elegante a tu estilo.', '180,000')">
+                        <div class="card-body">
+                            <p class="price">COP $180,000</p>
+                            <a href="#" class="btn btn-details">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="img_necklaces/collar3.jpg" alt="Imagen 3" onclick="showProduct('img_necklaces/collar3.jpg', 'Collar 3', 'Diseño moderno y versátil, ideal para complementar tu look diario.', '350,000')">
+                        <div class="card-body">
+                            <p class="price">COP $350,000</p>
+                            <a href="#" class="btn btn-details">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="img_necklaces/collar4.jpg" alt="Imagen 4" onclick="showProduct('img_necklaces/collar4.jpg', 'Collar 4', 'Collar de aspecto delicado que resalta con sutil elegancia.', '220,000')">
+                        <div class="card-body">
+                            <p class="price">COP $220,000</p>
+                            <a href="#" class="btn btn-details">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 5 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="img_necklaces/collar5.jpg" alt="Imagen 5" onclick="showProduct('img_necklaces/collar5.jpg', 'Collar 5', 'Una pieza que combina la simplicidad con la elegancia para todo tipo de eventos.', '310,000')">
+                        <div class="card-body">
+                            <p class="price">COP $310,000</p>
+                            <a href="#" class="btn btn-details">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 6 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="img_necklaces/collar6.jpg" alt="Imagen 6" onclick="showProduct('img_necklaces/collar6.jpg', 'Collar 6', 'Collar de estilo atemporal que nunca pasa de moda y se adapta a tu estilo personal.', '400,000')">
+                        <div class="card-body">
+                            <p class="price">COP $400,000</p>
+                            <a href="#" class="btn btn-details">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 7 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="img_necklaces/collar7.jpg" alt="Imagen 7" onclick="showProduct('img_necklaces/collar7.jpg', 'Collar 7', 'Un accesorio imprescindible que aporta un toque de sofisticación a tu atuendo.', '330,000')">
+                        <div class="card-body">
+                            <p class="price">COP $330,000</p>
+                            <a href="#" class="btn btn-details">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 8 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="img_necklaces/collar8.jpg" alt="Imagen 8" onclick="showProduct('img_necklaces/collar8.jpg', 'Collar 8', 'Collar atractivo y moderno que ilumina cualquier conjunto con su diseño minimalista.', '270,000')">
+                        <div class="card-body">
+                            <p class="price">COP $270,000</p>
+                            <a href="#" class="btn btn-details">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 9 -->
+                <div class="col-md-4">
+                    <div class="product-card">
+                        <img src="img_necklaces/collar9.jpg" alt="Imagen 9" onclick="showProduct('img_necklaces/collar9.jpg', 'Collar 9', 'Una joya discreta y elegante, ideal para realzar tu belleza natural en cualquier ocasión.', '380,000')">
+                        <div class="card-body">
+                            <p class="price">COP $380,000</p>
+                            <a href="#" class="btn btn-details">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista del producto (oculta por defecto) -->
+        <div class="product-view" style="display: none;">
+            <img id="product-image" src="" alt="Imagen del producto">
+            <div class="product-info">
+                <h2 id="product-name"></h2>
+                <p id="product-description"></p>
+                <p class="price" id="product-price"></p>
+                <button class="btn btn-primary" onclick="closeProduct()">Cerrar</button>
+            </div>
+        </div>
+    </section>
+    <!-- Sección de Ofertas -->
+<section class="offers-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">¡Ofertas Especiales!</h2>
+        <div class="row">
+            <!-- Oferta 1 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img_necklaces/collar10.jpg" class="card-img-top" alt="Oferta 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Collar de Perlas</h5>
+                        <p class="card-text">Antes: COP $300,000</p>
+                        <p class="card-text text-success">Ahora: COP $250,000</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Oferta 2 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img_necklaces/collar11.jpg" class="card-img-top" alt="Oferta 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Anillo de Diamante</h5>
+                        <p class="card-text">Antes: COP $500,000</p>
+                        <p class="card-text text-success">Ahora: COP $400,000</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Oferta 3 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="img_necklaces/collar12.jpg" class="card-img-top" alt="Oferta 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Pendientes de Plata</h5>
+                        <p class="card-text">Antes: COP $150,000</p>
+                        <p class="card-text text-success">Ahora: COP $120,000</p>
+                        <a href="#" class="btn btn-primary">Ver más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--FOOTER-->
+<footer>
+    <!-- Sección de iconos y correo electrónico -->
+    <div class="footer-top">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p class="p-foot"><i>ovejas++@asdi.com</i></p>
+    </div>
+  
+    <!-- Sección de copyright y enlaces legales -->
+    <div class="footer-bottom">
+        <p><i>&copy; S M & L | Diseñador Web: Ovejas++ | <a href="#">Aviso legal</a> · <a href="#">Política de privacidad</a></i></p>
+    </div>
+</footer>
+  
+
+
+    <script>
+        // Función para mostrar el producto en detalle
+        function showProduct(image, name, description, price) {
+            document.getElementById('product-image').src = image;
+            document.getElementById('product-name').textContent = name;
+            document.getElementById('product-description').textContent = description;
+            document.getElementById('product-price').textContent = 'COP $' + price;
+            document.querySelector('.product-view').style.display = 'flex';
+        }
+
+        // Función para cerrar la vista del producto
+        function closeProduct() {
+            document.querySelector('.product-view').style.display = 'none';
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

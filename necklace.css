@@ -1,0 +1,251 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #001529;
+    font-family: 'Cormorant Garamond', serif;
+    color: #FFD700;
+}
+
+.page-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #001529;
+}
+
+.gallery {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-card {
+    background-color: #001529;
+    border: 1px solid #FFD700;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    color: #FFD700;
+    max-width: 300px;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.card-body {
+    margin-top: 10px;
+}
+
+.btn-details {
+    background-color: #FFD700;
+    color: #001529;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-details:hover {
+    background-color: #FFA500;
+    color: #001529;
+}
+
+.product-view {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #001529;
+}
+
+.product-view img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-info {
+    text-align: center;
+    color:white;
+}
+
+.price {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+/* Estilos para la sección de ofertas */
+.offers-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+}
+
+.offers-section .card {
+    border: 1px solid #ddd; /* Borde suave similar al de los productos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+    transition: transform 0.3s ease-in-out;
+}
+
+.offers-section .card:hover {
+    transform: translateY(-10px); /* Efecto al pasar el ratón por encima */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Aumenta la sombra al pasar el ratón */
+}
+
+.offers-section .card-img-top {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover; /* Asegura que las imágenes no se distorsionen */
+}
+
+.offers-section .card-body {
+    text-align: center;
+}
+
+.offers-section .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.offers-section .card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.offers-section .card-text.text-success {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.offers-section .btn-primary {
+    background-color: #001529;
+    border-color: #001529;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.offers-section .btn-primary:hover {
+    background-color: #555;
+    border-color: #555;
+}
+
+/* Elimina márgenes y rellenos para evitar la barra blanca */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #001529; /* Fondo azul */
+    color: #FFD700;
+    font-family: 'Cormorant Garamond', serif;
+    min-height: 100%; /* Asegura que el contenido cubra toda la altura */
+}
+
+/* Asegura que el footer esté siempre al final de la página */
+footer {
+    text-align: center;
+    color: #333;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+/* Sección superior del footer */
+.footer-top {
+    background-color: #001529;
+    padding: 20px;
+    text-align: center;
+}
+
+.social-icons a {
+    color: #fff02d;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #000;
+}
+
+.p-foot {
+    color: #fff02d;
+}
+
+/* Sección inferior del footer */
+.footer-bottom {
+    background-color: #001529;
+    color: #fff02d;
+    font-size: 14px;
+    padding: 10px 0;
+}
+
+.footer-bottom p {
+    color: #fff02d;
+}
+
+.footer-bottom a {
+    color: #fff02d;
+}
+
+.footer-bottom a:hover {
+    color: #000000;
+}
+
+
+
+        /*ESTILOS PARA LA PANTALLA DE CARGA */
+        /*contenedor principal*/
+        #loading-screen {
+            position: fixed; /*cubre toda el área de la ventana.*/
+            /* Asegura que la pantalla de carga comience en la esquina superior izquierda.*/
+            top: 0;
+            left: 0;
+            /*Hace que la pantalla de carga ocupe todo el ancho y alto de la ventana.*/
+            width: 100%;
+            height: 100%;
+
+            background-color: rgba(0, 21, 41, 0.9);/*oscurecer la pantalla*/
+            /*Centra el contenido*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 1000;/*Coloca la pantalla de carga encima de otros elementos en la página.*/
+            animation: fadeOut 2s ease forwards; /*Aplica una animación de desvanecimiento*/
+        }
+
+        /* se aplica a la imagen dentro del contenedor*/
+        /*Aplica una animación de rotación a la imagen para que gire continuamente.*/
+        #loading-screen img {
+            width: 100px;
+            animation: spin 1s infinite linear;/*se ejecuta en 1 segundo y se repite indefinidamente con una velocidad constante*/
+        }
+
+        /*Define la animación de rotación de la imagen*/
+        @keyframes spin {
+            from { transform: rotate(0deg); }/*Al inicio de la animación, la imagen no tiene rotación*/
+
+            /*Este efecto se repite continuamente debido a infinite en animation: spin 1s infinite linear;*/
+            to { transform: rotate(360deg); }/*la imagen rota 360 grados en el transcurso de la animación*/
+        }
+
+        /*Define la animación de desvanecimiento para ocultar la pantalla de carga*/
+        @keyframes fadeOut {
+            0% { opacity: 1; }/*Al inicio, el contenedor es completamente opaco*/
+
+            /*La pantalla de carga se desvanece en 2 segundos debido a animation: fadeOut 2s ease forwards*/
+            100% { opacity: 0; visibility: hidden; } /*Al final de la animación, el contenedor es completamente transparente y queda oculto*/
+        }

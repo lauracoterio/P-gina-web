@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #001529;
+    font-family: 'Cormorant Garamond', serif;
+    color: #FFD700;
+}
+
+.page-section, .locations-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    position: relative;
+    padding: 3rem;
+}
+
+/* Elegant double border frame */
+.border-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.border-outer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 4px solid #FFD700; /* Ancho del marco ajustado */
+}
+
+.border-inner {
+    position: absolute;
+    top: 20px; /* Ajustado para mayor separación */
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid #FFD700;
+}
+
+.corner {
+    width: 40px; /* Ajustado para un marco más grande */
+    height: 40px;
+    position: absolute;
+    border: 4px solid #FFD700;
+}
+
+.top-left {
+    top: -4px;
+    left: -4px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.top-right {
+    top: -4px;
+    right: -4px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.bottom-left {
+    bottom: -4px;
+    left: -4px;
+    border-right: none;
+    border-top: none;
+}
+
+.bottom-right {
+    bottom: -4px;
+    right: -4px;
+    border-left: none;
+    border-top: none;
+}
+
+.content {
+    text-align: center;
+    padding: 2rem;
+    z-index: 1;
+}
+
+.logo {
+    max-width: 400px;
+    margin: 0 auto 2rem;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+.brand-name-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    gap: 1rem;
+}
+
+.decorative-line {
+    height: 1px;
+    width: 100px;
+    background-color: #FFD700;
+    display: inline-block;
+}
+
+.brand-name {
+    color: #FFD700;
+    font-size: 2.5rem;
+    margin: 0;
+    padding: 0 1rem;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: transparent;
+    color: #FFD700;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border: 1px solid #FFD700;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+    font-family: 'Cormorant Garamond', serif;
+    letter-spacing: 2px;
+}
+
+.cta-button:hover {
+    background-color: #FFD700;
+    color: #001529;
+}
+
+/* Video container styling */
+.video-container {
+    width: 100%;
+    max-width: 360px; /* Ajusta el tamaño máximo del video */
+    margin: 0 auto;
+}
+
+.video-responsive {
+    width: 100%;
+    height: auto;
+}
+
+/* Locations container styling */
+.locations-section {
+    margin-top: 2rem;
+}
+
+.location-card {
+    background-color: #001529;
+    border: 1px solid #FFD700;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.location-card:hover {
+    transform: translateY(-10px);
+}
+
+.location-card .card-body {
+    padding: 1rem;
+}
+
+.location-card .card-title {
+    color: #FFD700;
+    font-size: 1.25rem;
+}
+
+.location-card .card-text {
+    color: #FFF;
+}
+
+.location-card .btn {
+    background-color: #FFD700;
+    color: #001529;
+}
+
+/* Estilos para el texto promocional */
+.promo-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #e7e8f1; /* Cambio de color */
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px #FFD700; /* Efecto de iluminación amarillo */
+}
+
+.promo-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #FFF;
+    margin-bottom: 1.5rem;
+}
+
+.promo-description em {
+    font-style: italic;
+    color: #5f62e7; /* Cambio de color */
+}
+
+.btn-warning {
+    background-color: #5f62e7; /* Cambio de color */
+    border-color: #5f62e7; /* Cambio de color */
+}
+
+.btn-warning:hover {
+    background-color: #4f54d5;
+    border-color: #4f54d5;
+}
+
+/* Estilos de la sección de contacto */
+.contact-info {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.contact-info h5 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.contact-info a {
+    color: #5f62e7; /* Cambio de color */
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
