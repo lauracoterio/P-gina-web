@@ -1,3 +1,41 @@
+<?php
+session_start();
+include 'conexion.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Consulta a la base de datos para obtener los datos del usuario
+    $stmt = $conexion->prepare('SELECT id, name, password FROM usuario WHERE email = ?');
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id, $name, $hashed_password);
+        $stmt->fetch();
+
+        // Verificar la contraseña
+        if (password_verify($password, $hashed_password)) {
+            $_SESSION['id'] = $id;
+            $_SESSION['name'] = $name;
+            header('Location: start_shopping.html'); // Redirigir a la página de inicio
+            exit();
+        } else {
+            echo "Contraseña incorrecta.";
+        }
+    } else {
+        echo "No se encontró un usuario con ese correo.";
+    }
+
+    $stmt->close();
+}
+$conexion->close();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,8 +136,6 @@
     background-color: #f4d03f;
     color: #001b44;
 }
-
-
 
 /* ESTILOS PARA EL FOOTER */
 footer {
@@ -244,7 +280,7 @@ footer {
     <div class="container d-flex justify-content-center align-items-center vh-100">
         <div class="card p-4 shadow-lg" style="width: 22rem;">
             <h2 class="mb-4">Login</h2>
-            <form action="/login" method="post">
+            <form action="PA_inicio de sesion.php" method="post">
                 <div class="form-group">
                     <label for="email" class="mb-4">Email address</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>

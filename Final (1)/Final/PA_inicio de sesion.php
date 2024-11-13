@@ -1,26 +1,62 @@
-<!doctype html>
+<?php
+session_start();
+include 'conexion.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    // Consulta a la base de datos para obtener los datos del usuario
+    $stmt = $conexion->prepare('SELECT id, name, password FROM usuario WHERE email = ?');
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id, $name, $hashed_password);
+        $stmt->fetch();
+
+        // Verificar la contraseña
+        if (password_verify($password, $hashed_password)) {
+            $_SESSION['id'] = $id;
+            $_SESSION['name'] = $name;
+            header('Location: start_shopping.html'); // Redirigir a la página de inicio
+            exit();
+        } else {
+            echo "Contraseña incorrecta.";
+        }
+    } else {
+        echo "No se encontró un usuario con ese correo.";
+    }
+
+    $stmt->close();
+}
+$conexion->close();
+?>
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="img/icon3.png" type="image/x-icon">
+    <title>Iniciar sesión</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <title>Start shopping</title>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="icon" href="img/icon3.png" type="image/x-icon">
-<style>
-     body {
-            margin: 0;
-            padding: 0;
+    <style>
+        body {
+            margin: 0; /*no espacio adicional de la margen*/
+            padding: 0; /*no espacio adicional del interior*/
             background-color: #001529;
             font-family: 'Cormorant Garamond', serif;
             color: #fff02d;
         }
-      
 
- /*ESTILOS PARA EL NAVBAR*/
- .custom-navbar {
+         /*ESTILOS PARA EL NAVBAR*/
+         .custom-navbar {
              background-color:  #001529;
              margin-bottom: 20px;
              margin-top: -20px;
@@ -37,7 +73,7 @@
           height:35%;
           margin-top: -5px;
          }
-          /*elementos del navbar*/
+
          .navbar a {
              float: left; /*se alineas a la izquierda horizontalmente*/
              display: block; /*ocupan toda la línea*/
@@ -53,27 +89,59 @@
          }
 
 
-
-
-        .Anillos img {
-    width: 200px; 
-    height: 200px; 
-    border-radius: 5px; 
-    margin-top: 20px;
-    }
-    .banner  {
-         text-align: center;
-    }
-    .Anillos:hover {
-        transform: scale(1.2);
+/*ESTILO PARA EL FORMULARIO*/
+        .border-box {
+    border: 2px solid #f4d03f; /* Amarillo dorado */
+    padding: 30px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 600px;
+}
+.container{
+  margin-top: -80px;
 }
 
+.mb-4{
+    color: #001529;
+}
+
+.form-control{
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+
+.custom-logo {
+    font-size: 100px;
+    font-family: 'Cursive', sans-serif; /* Fuente estilizada */
+}
+
+.name-text {
+    font-size: 20px;
+    margin-top: -20px;
+}
+
+.border-gold {
+    border: 2px solid #001529;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: #001b44;
+    border-color: #f4d03f;
+    color: #f4d03f;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #f4d03f;
+    color: #001b44;
+}
 
 /* ESTILOS PARA EL FOOTER */
 footer {
     text-align: center;
     color: #333;
-    margin-top: 80px;
+    margin-top: -35px;
 }
 
 /* Sección superior del footer */
@@ -87,7 +155,7 @@ footer {
     color: #fff02d;
     margin: 0 10px;
     font-size: 20px;
-    transition: color 0.3s;
+    
 }
 
 .social-icons a:hover {
@@ -117,7 +185,9 @@ footer {
     color: #000000;
 }
 
-/*ESTILOS PARA LA PANTALLA DE CARGA */
+
+     
+        /*ESTILOS PARA LA PANTALLA DE CARGA */
         /*contenedor principal*/
         #loading-screen {
             position: fixed; /*cubre toda el área de la ventana.*/
@@ -160,22 +230,23 @@ footer {
             /*La pantalla de carga se desvanece en 2 segundos debido a animation: fadeOut 2s ease forwards*/
             100% { opacity: 0; visibility: hidden; } /*Al final de la animación, el contenedor es completamente transparente y queda oculto*/
         }
-</style>
-
+    </style>
 
 </head>
-<body>
+<body class="p-3 m-0 border-0 bd-example m-0 border-0">
+    
 
-    <!-- PANTALLA DE CARGA -->
-  <div id="loading-screen">
-    <img src="img/img5.png" alt="Loading Logo">
-</div>
+    <!-- Pantalla de carga -->
+    <div id="loading-screen">
+        <img src="img/img5.png" alt="Loading Logo">
+    </div>
 
-   
+
+
 <!--BARRA DE NAVEGACION -->
 <nav class="navbar navbar-expand-lg custom-navbar">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="img/img5 (3).png" alt=""></a>
+        <a class="navbar-brand" href="index.html"><img src="img5 (3).png" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -202,129 +273,31 @@ footer {
         </div>
     </div>
   </nav>
-  
 
- 
- <div class="banner">
-    <h1>Descubre Nuestros Anillos</h1>
-    <p>Encuentra el estilo perfecto para cada ocasión</p>
-</div>
 
-<div class="container filter-section">
-    <div class="row">
-        <div class="col-md-3">
-            <select class="form-control">
-                <option>Tipo de Anillo</option>
-                <option>Compromiso</option>
-                <option>Casual</option>
-            </select>
-        </div>
-        <div class="col-md-3">
-            <select class="form-control">
-                <option>Material</option>
-                <option>Oro</option>
-                <option>Plata</option>
-            </select>
-        </div>
-        <div class="col-md-3">
-            <select class="form-control">
-                <option>Rango de Precio</option>
-                <option>$0 - $50.000</option>
-                <option>$50 - $1.000.000</option>
-            </select>
-        </div>
-        <div class="col-md-3">
-            <button class="btn btn-primary w-100">Buscar</button>
-        </div>
-    </div>
-</div>
-
-<!-- Galería de Anillos -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="Anillos">
-                <img src="img/ring1.png" alt="Anillo 1">
-                <h5 class="mt-2">Anillo Elegante</h5>
-                <p>$120.000</p>
-                <button class="btn btn-outline-primary">Más detalles</button>
-                <button class="btn btn-primary">Añadir al carrito</button>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="Anillos">
-                <img src="img/ring2.png" alt="Anillo 2">
-                <h5 class="mt-2">Anillo Clásico</h5>
-                <p>$80.000</p>
-                <button class="btn btn-outline-primary">Más detalles</button>
-                <button class="btn btn-primary">Añadir al carrito</button>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="Anillos">
-                <img src="img/ring3.png" alt="Anillo 3">
-                <h5 class="mt-2">Anillo Moderno</h5>
-                <p>$95.000</p>
-                <button class="btn btn-outline-primary">Más detalles</button>
-                <button class="btn btn-primary">Añadir al carrito</button>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="Anillos">
-                <img src="img/ring10.png" alt="Anillo 3">
-                <h5 class="mt-2">Anillo Moderno</h5>
-                <p>$95.000</p>
-                <button class="btn btn-outline-primary">Más detalles</button>
-                <button class="btn btn-primary">Añadir al carrito</button>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="Anillos">
-                <img src="img/ring11.png" alt="Anillo 3">
-                <h5 class="mt-2">Anillo Moderno</h5>
-                <p>$95.000</p>
-                <button class="btn btn-outline-primary">Más detalles</button>
-                <button class="btn btn-primary">Añadir al carrito</button>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="Anillos">
-                <img src="img/ring12.png" alt="Anillo 3">
-                <h5 class="mt-2">Anillo Moderno</h5>
-                <p>$95.000</p>
-                <button class="btn btn-outline-primary">Más detalles</button>
-                <button class="btn btn-primary">Añadir al carrito</button>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="Anillos">
-                <img src="img/ring13.png" alt="Anillo 3">
-                <h5 class="mt-2">Anillo Moderno</h5>
-                <p>$95.000</p>
-                <button class="btn btn-outline-primary">Más detalles</button>
-                <button class="btn btn-primary">Añadir al carrito</button>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="Anillos">
-                <img src="img/ring14.png" alt="Anillo 3">
-                <h5 class="mt-2">Anillo Moderno</h5>
-                <p>$95.000</p>
-                <button class="btn btn-outline-primary">Más detalles</button>
-                <button class="btn btn-primary">Añadir al carrito</button>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="Anillos">
-                <img src="img/ring15.png" alt="Anillo 3">
-                <h5 class="mt-2">Anillo Moderno</h5>
-                <p>$95.000</p>
-                <button class="btn btn-outline-primary">Más detalles</button>
-                <button class="btn btn-primary">Añadir al carrito</button>
+    
+    <!-- Formulario de inicio de sesión -->
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card p-4 shadow-lg" style="width: 22rem;">
+            <h2 class="mb-4">Login</h2>
+            <form action="PA_inicio de sesion.php" method="post">
+                <div class="form-group">
+                    <label for="email" class="mb-4">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="mb-4">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            </form>
+            <div class="mt-3">
+                <a href="#">Forgot your password?</a><br>
+                <a href="sing_up.php">Don't have an account? Sign up</a>
             </div>
         </div>
     </div>
-</div>
+
 
 
 
@@ -346,9 +319,9 @@ footer {
         <p><i>&copy; S M & L | Diseñador Web: Ovejas++ | <a href="#">Aviso legal</a> · <a href="#">Política de privacidad</i></a></p>
     </div>
   </footer>
-  
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
